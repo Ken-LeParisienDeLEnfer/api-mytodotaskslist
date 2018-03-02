@@ -1,0 +1,22 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PAPILLON",
+		"_postman_id": "a0bd1807-6404-0c13-0f55-24a2f16b4217",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET \"Hello dude\"",
+			"request": {
+				"url": "http://localhost:3000/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
