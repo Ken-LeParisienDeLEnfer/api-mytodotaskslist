@@ -1,16 +1,16 @@
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
+var bddConfig = require('./config/bdd.config.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
-var dbConfig = require('./config/bdd.config.js');
-var mongoose = require('mongoose');
+app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(dbConfig.url);
+mongoose.connect(bddConfig.url);
 
 mongoose.connection.on('error', function() {
     console.log('Connection à la base de données impossible');

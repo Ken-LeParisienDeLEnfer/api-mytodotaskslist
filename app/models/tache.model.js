@@ -1,31 +1,17 @@
 var mongoose = require('mongoose');
 
 var TacheSchema = mongoose.Schema({
-    titre: String,
-    priorite: Number,
-    projet: String,
+    titre: {type: String, required: true},
+    priorite: {type: Number, required: false, default: 5},
+    projet: {type: String, required: false, default: "Autre"},
     type: String,
-    etat: String,
-    porteurs: [],
-    dateCreation: Date,
+    etat: {type: String, required: false, default: "TODO"},
+    porteurs: {type: [String], required: false, default: ["KEL"]},
+    dateCreation: {type: Date, required: false, default: Date.now()},
     dateResolutionSouhaitee: Date,
     dateResolution: Date,
-    urgent: Boolean
-}, {
-    timestamps: true
+    urgent: {type: Boolean, required: false, default: false}
 });
 
-function Tache(bodyResponse) {
-    console.log("constructor");
-    this.priorite = bodyResponse.priorite || 5;
-    this.projet = bodyResponse.projet;
-    this.type = bodyResponse.type;
-    this.etat = bodyResponse.etat == null ? "TODO" : bodyResponse.etat;
-    this.porteurs = bodyResponse.porteurs == null ? ["Me"] : bodyResponse.porteurs;
-    this.dateCreation = new Date();
-    this.dateResolutionSouhaitee = bodyResponse.dateResolutionSouhaitee;
-    this.dateResolution = bodyResponse.dateResolution;
-    this.urgent = bodyResponse.urgent == null ? false : bodyResponse.urgent;
-}
 
 module.exports = mongoose.model('Tache', TacheSchema, "Taches");
