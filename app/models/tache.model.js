@@ -10,7 +10,8 @@ var TacheSchema = mongoose.Schema({
     dateCreation: {type: Date, required: false, default: Date.now()},
     dateResolutionSouhaitee: Date,
     dateResolution: Date,
-    urgent: {type: Boolean, required: false, default: false}
+    urgent: {type: Boolean, required: false, default: false},
+    bloque: {type: Boolean, required: false, default: false}
 });
 
 

@@ -1,9 +1,11 @@
 var bodyParser = require('body-parser');
+var cors = require('cors');
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var bddConfig = require('./config/bdd.config.js');
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
